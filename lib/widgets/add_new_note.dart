@@ -6,16 +6,19 @@ class AddNewNote extends StatefulWidget {
   const AddNewNote({
     super.key,
   });
-
   @override
   State<AddNewNote> createState() => _AddNewNoteState();
 }
 
 class _AddNewNoteState extends State<AddNewNote> {
   final GlobalKey<FormState> formKey = GlobalKey();
+  String? title;
+  String? subtitle;
   @override
   Widget build(BuildContext context) {
-    return const Form(
+    return Form(
+      key: formKey,
+      autovalidateMode: AutovalidateMode.disabled,
       child: Column(
         children: [
           CustomTextFormField(
