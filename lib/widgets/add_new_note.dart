@@ -12,6 +12,7 @@ class AddNewNote extends StatefulWidget {
 }
 
 class _AddNewNoteState extends State<AddNewNote> {
+  final GlobalKey<FormState> formKey = GlobalKey();
   @override
   Widget build(BuildContext context) {
     return const Form(
