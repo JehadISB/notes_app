@@ -16,13 +16,16 @@ class CustomTextFormField extends StatelessWidget {
     return TextFormField(
       onSaved: onSaved,
       validator: (value) {
-        if(value?.isEmpty ?? true){
-
+        if (value?.isEmpty ?? true) {
+          return "Field is required";
+        } else {
+          return null;
         }
       },
       decoration: InputDecoration(
         enabledBorder: CustomBorderDecoration(),
         focusedBorder: CustomBorderDecoration(),
+        border: CustomBorderDecoration(),
         hintText: hintText,
         hintStyle: const TextStyle(
           color: KPrimaryColor,

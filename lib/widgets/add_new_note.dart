@@ -14,27 +14,43 @@ class _AddNewNoteState extends State<AddNewNote> {
   final GlobalKey<FormState> formKey = GlobalKey();
   String? title;
   String? subtitle;
+  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   @override
   Widget build(BuildContext context) {
     return Form(
       key: formKey,
-      autovalidateMode: AutovalidateMode.disabled,
+      autovalidateMode: autovalidateMode,
       child: Column(
         children: [
           CustomTextFormField(
+            onSaved: (value) {
+              title = value;
+            },
             hintText: "Title",
           ),
           SizedBox(
             height: 20,
           ),
           CustomTextFormField(
+            onSaved: (value) {
+              subtitle = value;
+            },
             hintText: "Content",
             maxLines: 5,
           ),
           SizedBox(
             height: 40,
           ),
-          CustomButton(),
+          CustomButton(
+            onTap: () {
+              if (formKey.currentState!.validate()) {
+                formKey.currentState!.save();
+              } else {
+                autovalidateMode = AutovalidateMode.always;
+                setState(() {});
+              }
+            },
+          ),
         ],
       ),
     );
