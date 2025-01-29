@@ -18,11 +18,19 @@ class CustomButton extends StatelessWidget {
             color: KPrimaryColor, borderRadius: BorderRadius.circular(8)),
         width: MediaQuery.of(context).size.width,
         height: 50,
-        child: const Center(
-          child: Text(
-            "Add",
-            style: TextStyle(color: Colors.black, fontSize: 16),
-          ),
+        child: Center(
+          child: isLoading
+              ? const SizedBox(
+                  height: 30,
+                  width: 30,
+                  child: const CircularProgressIndicator(
+                    color: Colors.black,
+                  ),
+                )
+              : const Text(
+                  "Add",
+                  style: TextStyle(color: Colors.black, fontSize: 20),
+                ),
         ),
       ),
     );
