@@ -20,20 +20,13 @@ class MyNotesApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider(
-          create: (context) => AddNoteCubit(),
-        ),
-      ],
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: const HomeView(),
-        theme: ThemeData(
-            brightness: Brightness.dark,
-            fontFamily: "Poppins",
-            useMaterial3: false),
-      ),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: const HomeView(),
+      theme: ThemeData(
+          brightness: Brightness.dark,
+          fontFamily: "Poppins",
+          useMaterial3: false),
     );
   }
 }
