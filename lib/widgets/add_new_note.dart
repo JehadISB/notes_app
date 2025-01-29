@@ -46,13 +46,14 @@ class _AddNewNoteState extends State<AddNewNote> {
           ),
           CustomButton(
             onTap: () {
-              BlocProvider.of<AddNoteCubit>(context).addnote(NotesModel(
-                  title: title!,
-                  subTitle: subtitle!,
-                  date: DateTime.now().toString(),
-                  color: Colors.cyan.value));
               if (formKey.currentState!.validate()) {
                 formKey.currentState!.save();
+                var noteModel = NotesModel(
+                    title: title!, //?? "Untitled",
+                    subTitle: subtitle!, //?? "No subtitle",
+                    date: DateTime.now().toString(),
+                    color: Colors.cyan.value);
+                BlocProvider.of<AddNoteCubit>(context).addnote(noteModel);
               } else {
                 autovalidateMode = AutovalidateMode.always;
                 setState(() {});
