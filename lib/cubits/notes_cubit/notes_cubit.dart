@@ -13,8 +13,9 @@ class NotesCubit extends Cubit<NotesState> {
     // try {
     var noteBox = Hive.box<NotesModel>(KNoteBox);
     listOfNotes = noteBox.values.toList();
-    debugPrint(
-        "!! HERE YOUR NOTES: ${listOfNotes[0].title} == ${listOfNotes[1].subTitle}===${listOfNotes[0].date}");
+    emit(NotesSuccess());
+    // debugPrint(
+    //     "!! HERE YOUR NOTES: ${listOfNotes[0].title} == ${listOfNotes[1].subTitle}===${listOfNotes[0].date}");
     //return listOfNotes;
     //return listOfNotes;
     //emit(NotesSuccess(notes: listOfNotes));

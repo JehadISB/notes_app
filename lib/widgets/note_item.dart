@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:my_notes_app/cubits/notes_cubit/notes_cubit.dart';
 import 'package:my_notes_app/models/notes_model.dart';
 import 'package:my_notes_app/views/edit_view.dart';
 import 'package:my_notes_app/widgets/custom_icon_buttom.dart';
@@ -45,13 +47,18 @@ class NoteItem extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const EditView()),
+                            builder: (context) => EditView(
+                                  notesModel: notesModel,
+                                )),
                       );
                     },
                     icon: Icons.edit,
                   ),
                   CustomIconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      notesModel.delete();
+                      BlocProvider.of<NotesCubit>(context).feachAllNotes();
+                    },
                     icon: Icons.delete,
                   ),
                 ],

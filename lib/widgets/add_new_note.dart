@@ -35,7 +35,7 @@ class _AddNewNoteState extends State<AddNewNote> {
               },
               hintText: "Title",
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             CustomTextFormField(
@@ -45,7 +45,7 @@ class _AddNewNoteState extends State<AddNewNote> {
               hintText: "Content",
               maxLines: 5,
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             BlocBuilder<AddNoteCubit, AddNoteState>(
@@ -71,7 +71,7 @@ class _AddNewNoteState extends State<AddNewNote> {
                 );
               },
             ),
-            CustomVerticalSpace(
+            const CustomVerticalSpace(
               height: 20,
             ),
           ],

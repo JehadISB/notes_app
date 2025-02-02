@@ -2,13 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:my_notes_app/widgets/custom_search_button.dart';
 
 class CustomAppBar extends StatelessWidget {
-  const CustomAppBar({
-    super.key,
-    required this.title,
-    this.icons,
-  });
+  const CustomAppBar(
+      {super.key, required this.title, this.icons, this.onPressed});
   final String title;
   final IconData? icons;
+  final void Function()? onPressed;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -22,6 +20,7 @@ class CustomAppBar extends StatelessWidget {
           ),
           CustomSearchButton(
             icons: icons,
+            onPressed: onPressed,
           ),
         ],
       ),
