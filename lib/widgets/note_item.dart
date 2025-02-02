@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:my_notes_app/models/notes_model.dart';
 import 'package:my_notes_app/views/edit_view.dart';
 import 'package:my_notes_app/widgets/custom_icon_buttom.dart';
 
 class NoteItem extends StatelessWidget {
-  const NoteItem({super.key});
+  const NoteItem({super.key, required this.notesModel});
+  final NotesModel notesModel;
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +13,7 @@ class NoteItem extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 8),
       child: Container(
         decoration: BoxDecoration(
-          color: Colors.orange[100],
+          color: Color(notesModel.color),
           borderRadius: BorderRadius.circular(16),
         ),
         padding: const EdgeInsets.only(top: 24, left: 16, bottom: 24),
@@ -20,18 +22,18 @@ class NoteItem extends StatelessWidget {
           children: [
             ListTile(
               contentPadding: EdgeInsets.zero,
-              title: const Text(
-                "FLutter tips",
-                style: TextStyle(
+              title: Text(
+                notesModel.title,
+                style: const TextStyle(
                   color: Colors.black,
                   fontSize: 20,
                 ),
               ),
-              subtitle: const Padding(
+              subtitle: Padding(
                 padding: EdgeInsets.only(right: 20, top: 16, bottom: 16),
                 child: Text(
-                  "Build Your Career with jehad Irahim",
-                  style: TextStyle(
+                  notesModel.subTitle,
+                  style: const TextStyle(
                     color: Colors.grey,
                   ),
                 ),
@@ -55,10 +57,10 @@ class NoteItem extends StatelessWidget {
                 ],
               ),
             ),
-            const Padding(
+            Padding(
               padding: EdgeInsets.only(right: 16),
-              child: Text("May 12.5.2025",
-                  style: TextStyle(
+              child: Text(notesModel.date,
+                  style: const TextStyle(
                     color: Colors.grey,
                   )),
             ),
