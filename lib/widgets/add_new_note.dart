@@ -4,6 +4,8 @@ import 'package:intl/intl.dart';
 import 'package:my_notes_app/cubits/add_note_cubit/cubit/add_note_cubit.dart';
 import 'package:my_notes_app/models/notes_model.dart';
 import 'package:my_notes_app/widgets/custom_button.dart';
+import 'package:my_notes_app/widgets/custom_color_item.dart';
+import 'package:my_notes_app/widgets/custom_list_colors.dart';
 import 'package:my_notes_app/widgets/custom_text_form_field.dart';
 import 'package:my_notes_app/widgets/custom_vertical_space.dart';
 
@@ -45,6 +47,7 @@ class _AddNewNoteState extends State<AddNewNote> {
               hintText: "Content",
               maxLines: 5,
             ),
+            CustomListOfColors(),
             const SizedBox(
               height: 20,
             ),
