@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-List<Color> notesColors = [
+List<Color> KNotesColors = [
   Color(0xffFADA7A),
   Color(0xffFCE7C8),
   Color(0xffFFA09B),

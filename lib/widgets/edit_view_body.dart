@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:my_notes_app/constants/notes_list_colors.dart';
 import 'package:my_notes_app/cubits/notes_cubit/notes_cubit.dart';
 import 'package:my_notes_app/models/notes_model.dart';
 import 'package:my_notes_app/widgets/custom_app_bar.dart';
+import 'package:my_notes_app/widgets/custom_color_item.dart';
 import 'package:my_notes_app/widgets/custom_text_form_field.dart';
 import 'package:my_notes_app/widgets/custom_vertical_space.dart';
+import 'package:my_notes_app/widgets/edit_view_list_colors.dart';
 
 class EditViewBody extends StatefulWidget {
   const EditViewBody({
@@ -56,6 +59,9 @@ class _EditViewBodyState extends State<EditViewBody> {
             },
             hintText: "Conetnt",
             maxLines: 5,
+          ),
+          EditViewListColors(
+            notesModel: widget.notesModel,
           ),
         ],
       ),

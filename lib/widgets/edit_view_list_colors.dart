@@ -1,20 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_notes_app/constants/notes_list_colors.dart';
-import 'package:my_notes_app/cubits/add_note_cubit/cubit/add_note_cubit.dart';
+import 'package:my_notes_app/models/notes_model.dart';
 import 'package:my_notes_app/widgets/custom_color_item.dart';
 
-class CustomListOfColors extends StatefulWidget {
-  const CustomListOfColors({
-    super.key,
-  });
-
+class EditViewListColors extends StatefulWidget {
+  const EditViewListColors({super.key, required this.notesModel});
+  final NotesModel notesModel;
   @override
-  State<CustomListOfColors> createState() => _CustomListOfColorsState();
+  State<EditViewListColors> createState() => _EditViewListColorsState();
 }
 
-class _CustomListOfColorsState extends State<CustomListOfColors> {
-  int selectedIndex = 0;
+class _EditViewListColorsState extends State<EditViewListColors> {
+  late int selectedIndex = KNotesColors.indexOf(Color(widget.notesModel.color));
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -30,8 +27,7 @@ class _CustomListOfColorsState extends State<CustomListOfColors> {
               child: GestureDetector(
                 onTap: () {
                   selectedIndex = index;
-                  BlocProvider.of<AddNoteCubit>(context).noteColor =
-                      KNotesColors[index];
+                  widget.notesModel.color = KNotesColors[index].value;
                   setState(() {});
                 },
                 child: CustomColorItem(
