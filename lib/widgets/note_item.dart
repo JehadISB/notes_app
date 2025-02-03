@@ -35,8 +35,8 @@ class NoteItem extends StatelessWidget {
                 padding: EdgeInsets.only(right: 20, top: 16, bottom: 16),
                 child: Text(
                   notesModel.subTitle,
-                  style: const TextStyle(
-                    color: Colors.grey,
+                  style: TextStyle(
+                    color: Colors.black.withOpacity(0.5),
                   ),
                 ),
               ),

@@ -47,6 +47,9 @@ class _AddNewNoteState extends State<AddNewNote> {
               hintText: "Content",
               maxLines: 5,
             ),
+            const SizedBox(
+              height: 20,
+            ),
             CustomListOfColors(),
             const SizedBox(
               height: 20,
