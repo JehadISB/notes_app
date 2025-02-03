@@ -29,41 +29,43 @@ class _EditViewBodyState extends State<EditViewBody> {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 16, horizontal: 16),
-      child: Column(
-        children: [
-          CustomAppBar(
-            title: "Edit note",
-            icons: Icons.done,
-            onPressed: () {
-              widget.notesModel.title = title ?? widget.notesModel.title;
-              widget.notesModel.subTitle =
-                  subtitle ?? widget.notesModel.subTitle;
-              widget.notesModel.save();
-              BlocProvider.of<NotesCubit>(context).feachAllNotes();
-              Navigator.pop(context);
-            },
-          ),
-          CustomVerticalSpace(),
-          CustomTextFormField(
-            onChanged: (value) {
-              title = value;
-            },
-            hintText: "Title",
-          ),
-          CustomVerticalSpace(
-            height: 20,
-          ),
-          CustomTextFormField(
-            onChanged: (value) {
-              subtitle = value;
-            },
-            hintText: "Conetnt",
-            maxLines: 5,
-          ),
-          EditViewListColors(
-            notesModel: widget.notesModel,
-          ),
-        ],
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            CustomAppBar(
+              title: "Edit note",
+              icons: Icons.done,
+              onPressed: () {
+                widget.notesModel.title = title ?? widget.notesModel.title;
+                widget.notesModel.subTitle =
+                    subtitle ?? widget.notesModel.subTitle;
+                widget.notesModel.save();
+                BlocProvider.of<NotesCubit>(context).feachAllNotes();
+                Navigator.pop(context);
+              },
+            ),
+            CustomVerticalSpace(),
+            CustomTextFormField(
+              onChanged: (value) {
+                title = value;
+              },
+              hintText: "Title",
+            ),
+            CustomVerticalSpace(
+              height: 20,
+            ),
+            CustomTextFormField(
+              onChanged: (value) {
+                subtitle = value;
+              },
+              hintText: "Conetnt",
+              maxLines: 5,
+            ),
+            EditViewListColors(
+              notesModel: widget.notesModel,
+            ),
+          ],
+        ),
       ),
     );
   }
